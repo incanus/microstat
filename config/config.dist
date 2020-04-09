@@ -33,6 +33,12 @@ PUBLISH_COMMAND=/path/to/a/script
 # Defaults to `tags` if unset.
 #POST_TAGS_KEY=tags
 
+# If set, is inserted between the formatted date part and the slug, if provided.
+#POST_SLUG_SEPARATOR=_
+
+# If set, controls the format of the component of the post URL based on the publish time/date.
+#POST_DATE_FORMAT=YYYY/MM/DD_HH.mm.ss
+
 # If set, controls the format of the tags list
 # in the generated front matter of each post.
 # Valid values are `space_delimited` (Jekyll style) or `yaml_list` (Hugo style).

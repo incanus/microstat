@@ -136,8 +136,10 @@ app.use(
       const published = properties.published[0];
       const slug = properties.slug[0];
 
-      const suffix = slug ? `_${slug}` : '';
-      const postDate = moment(published).format('YYYY/MM/DD_HH.mm.ss');
+      const slugSeparator = process.env.POST_SLUG_SEPARATOR || '_';
+      const suffix = slug ? `${slugSeparator}${slug}` : '';
+      const postDateFormat = process.env.POST_DATE_FORMAT || 'YYYY/MM/DD_HH.mm.ss';
+      const postDate = moment(published).format(postDateFormat);
       const postName = `${postDate}${suffix}`;
       const fileName = `${postName}.md`;
       const postUrl = process.env.POST_URL_TEMPLATE.replace(/\$\{postName\}/i, postName);
