@@ -4,6 +4,12 @@ const raw = require('config/raw').raw;
 // ***Copy this file to `config/local.js` and change the copy to fit your site and needs.***
 
 // Override the implementation of this function to fit your needs.
+// See `posts.generators.slug` below for more details.
+const generatePostSlug = (timestamp) => {
+  return false;
+};
+
+// Override the implementation of this function to fit your needs.
 // See `posts.generators.filename` below for more details.
 const generatePostFilename = (timestamp, slug) => {
   const suffix = slug ? `_${slug}` : '';
@@ -69,6 +75,10 @@ module.exports = {
       // Directories should be separated by forward slashes
       // and will be automatically created if they don't exist in the fileystem.
       filename: raw(generatePostFilename),
+
+      // Function that generates a slug for each post. Return `false` to use the
+      // slug passed by the client.
+      slug: raw(generatePostSlug),
     },
 
     // If nonempty, will include the configured Jekyll-style layout name in each post.

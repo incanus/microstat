@@ -76,6 +76,7 @@ const isMicroblogReply: (properties: { content: string[] }) => boolean = propert
 
 const mediaFilenamePrefixGenerator = config.get('media.generators.filenamePrefix');
 const microblogPingFeedURL = config.has('app.microblogPingFeedURL') && config.get('app.microblogPingFeedURL');
+const postSlugGenerator = config.get('posts.generators.slug');
 const postFilenameGenerator = config.get('posts.generators.filename');
 const postUrlGenerator = config.get('posts.generators.url');
 const publishCommand = config.get('app.publishCommand');
@@ -106,7 +107,7 @@ app.use(
       const { properties, files } = preFormatted;
 
       const published = properties.published[0];
-      const slug = properties.slug[0];
+      const slug = postSlugGenerator(published) || properties.slug[0];
 
       const fileName = postFilenameGenerator(published, slug);
       const postUrl = postUrlGenerator(published, slug);

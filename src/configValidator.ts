@@ -100,6 +100,9 @@ export default class ConfigValidator {
   }
 
   private validatePostsConfig(): void {
+    // posts.generators.slug
+    this.validateFunction('posts.generators.slug');
+
     // posts.generators.url
     this.validateFunction('posts.generators.url');
 
