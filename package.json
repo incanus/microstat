@@ -24,7 +24,7 @@
     "axios": "^0.19.2",
     "config": "^3.3.1",
     "express": "4.17.1",
-    "format-microformat": "0.11.1",
+    "format-microformat": "incanus/node-format-microformat#external-slug",
     "micropub-express": "0.8.1",
     "minilog": "3.1.0",
     "mkdirp": "1.0.4",
